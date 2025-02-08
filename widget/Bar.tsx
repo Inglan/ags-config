@@ -14,7 +14,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       anchor={TOP | LEFT | BOTTOM}
       application={App}
     >
-      <centerbox>
+      <box vertical={true}>
         <button onClicked="echo hello" halign={Gtk.Align.CENTER}>
           Welcome to AGS!
         </button>
@@ -22,7 +22,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <button onClicked={() => print("hello")} halign={Gtk.Align.CENTER}>
           <label label={time()} />
         </button>
-      </centerbox>
+      </box>
     </window>
   );
 }
