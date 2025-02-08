@@ -28,7 +28,7 @@ $crust: #11111b;
 
 window.Bar {
   background: transparent;
-  > box {
+  > eventbox > box {
     background: $base;
     margin: 14px;
     margin-right: 0;
