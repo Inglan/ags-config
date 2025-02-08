@@ -1,6 +1,8 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3";
 import { Variable, bind } from "astal";
 import Hyprland from "gi://AstalHyprland";
+import Tray from "gi://AstalTray";
+
 const hyprland = Hyprland.get_default();
 
 const time = Variable("").poll(1000, "date");
