@@ -32,7 +32,7 @@ window.Bar {
     background: $base;
     margin: 14px;
     margin-right: 0;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 4px;
   }
 
@@ -41,6 +41,7 @@ window.Bar {
       margin-bottom: 4px;
       background: $base;
       color: $text;
+      border-radius: 20px;
     }
     button.focused {
       background: $surface1;
