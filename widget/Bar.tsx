@@ -9,7 +9,7 @@ function Workspaces() {
   const hypr = Hyprland.get_default();
 
   return (
-    <box className="Workspaces">
+    <box className="Workspaces" vertical={true}>
       {bind(hypr, "workspaces").as((wss) =>
         wss
           .filter((ws) => !(ws.id >= -99 && ws.id <= -2)) // filter out special workspaces
