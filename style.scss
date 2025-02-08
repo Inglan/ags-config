@@ -26,10 +26,26 @@ $base: #1e1e2e;
 $mantle: #181825;
 $crust: #11111b;
 
-$fg-color: $text;
-$bg-color: $base;
-
 window.Bar {
   background: transparent;
-  color: $fg-color;
+  > box {
+    background: $base;
+    margin: 14px;
+    margin-right: 0;
+    border-radius: 10px;
+    padding: 4px;
+  }
+
+  box.Workspaces {
+    button {
+      margin-bottom: 4px;
+      background: $base;
+      color: $text;
+    }
+    button.focused {
+      background: $surface1;
+      color: $text;
+      padding: 10px;
+    }
+  }
 }
