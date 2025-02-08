@@ -42,13 +42,6 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     >
       <box vertical={true}>
         <Workspaces />
-        <button onClicked="echo hello" halign={Gtk.Align.CENTER}>
-          Welcome to AGS!
-        </button>
-        <box />
-        <button onClicked={() => print("hello")} halign={Gtk.Align.CENTER}>
-          <label label={time()} />
-        </button>
       </box>
     </window>
   );
