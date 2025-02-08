@@ -9,6 +9,14 @@ const hyprland = Hyprland.get_default();
 
 const time = Variable("").poll(1000, "date");
 
+function BatteryWidget() {
+  return (
+    <box className="Battery">
+      {bind(battery, "percentage").as((p) => p * 100 + "%")}
+    </box>
+  );
+}
+
 function Workspaces() {
   const hypr = Hyprland.get_default();
 
@@ -21,13 +29,13 @@ function Workspaces() {
           .map((ws) => (
             <button
               className={bind(hypr, "focusedWorkspace").as((fw) =>
-                ws === fw ? "focused" : ""
+                ws === fw ? "focused" : "",
               )}
               onClicked={() => ws.focus()}
             >
               {ws.id}
             </button>
-          ))
+          )),
       )}
     </box>
   );
@@ -44,9 +52,13 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       anchor={TOP | LEFT | BOTTOM}
       application={App}
     >
-      <box vertical={true}>
-        <Workspaces />
-      </box>
+      <eventbox>
+        {" "}
+        <box vertical={true}>
+          <Workspaces />
+          <BatteryWidget />
+        </box>
+      </eventbox>
     </window>
   );
 }
