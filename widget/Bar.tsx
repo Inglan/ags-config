@@ -2,7 +2,9 @@ import { App, Astal, Gtk, Gdk } from "astal/gtk3";
 import { Variable, bind } from "astal";
 import Hyprland from "gi://AstalHyprland";
 import Tray from "gi://AstalTray";
+import Battery from "gi://AstalBattery";
 
+const battery = Battery.get_default();
 const hyprland = Hyprland.get_default();
 
 const time = Variable("").poll(1000, "date");
