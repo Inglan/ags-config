@@ -12,7 +12,7 @@ const time = Variable("").poll(1000, "date");
 function BatteryWidget() {
   return (
     <box className="Battery">
-      {bind(battery, "percentage").as((p) => p * 100 + "%")}
+      <box>{bind(battery, "percentage").as((p) => p * 100 + "%")}</box>
     </box>
   );
 }
@@ -29,13 +29,13 @@ function Workspaces() {
           .map((ws) => (
             <button
               className={bind(hypr, "focusedWorkspace").as((fw) =>
-                ws === fw ? "focused" : "",
+                ws === fw ? "focused" : ""
               )}
               onClicked={() => ws.focus()}
             >
               {ws.id}
             </button>
-          )),
+          ))
       )}
     </box>
   );
@@ -53,7 +53,6 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       application={App}
     >
       <eventbox>
-        {" "}
         <box vertical={true}>
           <Workspaces />
           <BatteryWidget />
