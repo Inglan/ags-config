@@ -60,6 +60,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       <eventbox>
         <box vertical={true}>
           <Workspaces />
+          <box expand={true}></box>
           <BatteryWidget />
         </box>
       </eventbox>
