@@ -11,7 +11,10 @@ const time = Variable("").poll(1000, "date");
 
 function BatteryWidget() {
   return (
-    <box className="Battery">
+    <box className="Battery" vertical={true}>
+      <box className="icon" halign={Gtk.Align.CENTER}>
+        battery_full
+      </box>
       <box>{bind(battery, "percentage").as((p) => p * 100 + "%")}</box>
     </box>
   );
