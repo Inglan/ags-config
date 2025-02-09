@@ -15,7 +15,9 @@ function BatteryWidget() {
       <box className="icon" halign={Gtk.Align.CENTER}>
         battery_full
       </box>
-      <box>{bind(battery, "percentage").as((p) => p * 100 + "%")}</box>
+      <box halign={Gtk.Align.CENTER}>
+        {bind(battery, "percentage").as((p) => p * 100 + "%")}
+      </box>
     </box>
   );
 }
