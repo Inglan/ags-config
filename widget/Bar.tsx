@@ -12,6 +12,13 @@ const time = Variable("").poll(1000, "date");
 function BatteryWidget() {
   return (
     <box className="Battery" vertical={true}>
+      <circularprogress
+        startAt={0.75}
+        endAt={0.75}
+        inverted={true}
+        rounded={true}
+        value={0.5}
+      ></circularprogress>
       <box className="icon" halign={Gtk.Align.CENTER}>
         battery_full
       </box>
