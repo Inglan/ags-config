@@ -1,4 +1,4 @@
-import { App, Astal, Gtk, Gdk } from "astal/gtk3";
+import { App, Astal, Gtk, Gdk } from "astal/gtk4";
 import { Variable, bind } from "astal";
 import Hyprland from "gi://AstalHyprland";
 import Tray from "gi://AstalTray";
@@ -13,11 +13,11 @@ function SysTray() {
   const tray = Tray.get_default();
 
   return (
-    <box className="SysTray">
+    <box cssClasses={["SysTray"]} vertical={true}>
       {bind(tray, "items").as((items) =>
         items.map((item) => (
           <button>
-            <icon gicon={bind(item, "gicon")} />
+            <image gicon={bind(item, "gicon")} />
           </button>
         ))
       )}
@@ -27,15 +27,8 @@ function SysTray() {
 
 function BatteryWidget() {
   return (
-    <box className="Battery" vertical={true}>
-      <circularprogress
-        startAt={0.75}
-        endAt={0.75}
-        inverted={true}
-        rounded={true}
-        value={0.5}
-      ></circularprogress>
-      <box className="icon" halign={Gtk.Align.CENTER}>
+    <box cssClasses={["Battery"]} vertical={true}>
+      <box cssClasses={["icon"]} halign={Gtk.Align.CENTER}>
         battery_full
       </box>
       <box halign={Gtk.Align.CENTER}>
@@ -49,15 +42,15 @@ function Workspaces() {
   const hypr = Hyprland.get_default();
 
   return (
-    <box className="Workspaces" vertical={true}>
+    <box cssClasses={["Workspaces"]} vertical={true}>
       {bind(hypr, "workspaces").as((wss) =>
         wss
           .filter((ws) => !(ws.id >= -99 && ws.id <= -2)) // filter out special workspaces
           .sort((a, b) => a.id - b.id)
           .map((ws) => (
             <button
-              className={bind(hypr, "focusedWorkspace").as((fw) =>
-                ws === fw ? "focused" : ""
+              cssClasses={bind(hypr, "focusedWorkspace").as((fw) =>
+                ws === fw ? ["focused"] : [""]
               )}
               onClicked={() => ws.focus()}
             >
@@ -74,20 +67,19 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
   return (
     <window
-      className="Bar"
+      visible
+      cssClasses={["Bar"]}
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | BOTTOM}
       application={App}
     >
-      <eventbox>
-        <box vertical={true}>
-          <Workspaces />
-          <box expand={true}></box>
-          <SysTray />
-          <BatteryWidget />
-        </box>
-      </eventbox>
+      <box vertical={true}>
+        <Workspaces />
+        <box expand={true}></box>
+        <SysTray />
+        <BatteryWidget />
+      </box>
     </window>
   );
 }
