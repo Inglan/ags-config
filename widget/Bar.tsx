@@ -9,6 +9,22 @@ const hyprland = Hyprland.get_default();
 
 const time = Variable("").poll(1000, "date");
 
+function SysTray() {
+  const tray = Tray.get_default();
+
+  return (
+    <box className="SysTray">
+      {bind(tray, "items").as((items) =>
+        items.map((item) => (
+          <button>
+            <icon gicon={bind(item, "gicon")} />
+          </button>
+        ))
+      )}
+    </box>
+  );
+}
+
 function BatteryWidget() {
   return (
     <box className="Battery" vertical={true}>
@@ -68,6 +84,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box vertical={true}>
           <Workspaces />
           <box expand={true}></box>
+          <SysTray />
           <BatteryWidget />
         </box>
       </eventbox>
