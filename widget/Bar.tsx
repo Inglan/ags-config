@@ -29,7 +29,18 @@ function SysTray() {
 
 function BatteryWidget() {
   return (
-    <button cssClasses={["Battery"]}>
+    <button
+      cssClasses={["Battery"]}
+      onClicked={() => {
+        if (powerprofiles.activeProfile === "balanced") {
+          powerprofiles.set_active_profile("performance");
+        } else if (powerprofiles.activeProfile === "performance") {
+          powerprofiles.set_active_profile("power-saver");
+        } else {
+          powerprofiles.set_active_profile("balanced");
+        }
+      }}
+    >
       <box vertical={true}>
         <box halign={Gtk.Align.CENTER} cssClasses={["icon"]}>
           {bind(powerprofiles, "activeProfile").as((s) => {
