@@ -3,9 +3,11 @@ import { Variable, bind } from "astal";
 import Hyprland from "gi://AstalHyprland";
 import Tray from "gi://AstalTray";
 import Battery from "gi://AstalBattery";
+import PowerProfiles from "gi://AstalPowerProfiles";
 
 const battery = Battery.get_default();
 const hyprland = Hyprland.get_default();
+const powerprofiles = PowerProfiles.get_default();
 
 const time = Variable("").poll(1000, "date");
 
@@ -27,14 +29,21 @@ function SysTray() {
 
 function BatteryWidget() {
   return (
-    <box cssClasses={["Battery"]} vertical={true}>
-      <box cssClasses={["icon"]} halign={Gtk.Align.CENTER}>
-        battery_full
+    <button cssClasses={["Battery"]}>
+      <box vertical={true}>
+        <box halign={Gtk.Align.CENTER} cssClasses={["icon"]}>
+          {bind(powerprofiles, "activeProfile").as((s) => {
+            if (s === "balanced") return "battery_full";
+            if (s === "performance") return "speed";
+            if (s === "power-saver") return "battery_plus";
+            return s;
+          })}
+        </box>
+        <box halign={Gtk.Align.CENTER}>
+          {bind(battery, "percentage").as((p) => p * 100 + "%")}
+        </box>
       </box>
-      <box halign={Gtk.Align.CENTER}>
-        {bind(battery, "percentage").as((p) => p * 100 + "%")}
-      </box>
-    </box>
+    </button>
   );
 }
 
