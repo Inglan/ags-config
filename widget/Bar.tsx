@@ -6,7 +6,7 @@ import Battery from "gi://AstalBattery";
 import PowerProfiles from "gi://AstalPowerProfiles";
 
 const battery = Battery.get_default();
-const hyprland = Hyprland.get_default();
+const hypr = Hyprland.get_default();
 const powerprofiles = PowerProfiles.get_default();
 
 const time = Variable("").poll(1000, "date");
@@ -48,8 +48,6 @@ function BatteryWidget() {
 }
 
 function Workspaces() {
-  const hypr = Hyprland.get_default();
-
   return (
     <box cssClasses={["Workspaces"]} vertical={true}>
       {bind(hypr, "workspaces").as((wss) =>
