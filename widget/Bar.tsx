@@ -13,10 +13,10 @@ function SysTray() {
   const tray = Tray.get_default();
 
   return (
-    <box cssClasses={["SysTray"]} vertical={true}>
+    <box className="SysTray">
       {bind(tray, "items").as((items) =>
         items.map((item) => (
-          <button>
+          <button onClicked={(event) => item.activate(0, 0)}>
             <image gicon={bind(item, "gicon")} />
           </button>
         ))
