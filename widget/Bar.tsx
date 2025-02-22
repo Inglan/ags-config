@@ -76,7 +76,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     >
       <box vertical={true}>
         <Workspaces />
-        <box expand={true}></box>
+        <box vexpand={true} />
         <SysTray />
         <BatteryWidget />
       </box>
