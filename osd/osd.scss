@@ -2,10 +2,10 @@
 
 window.OSD {
     box.OSD {
-        margin: 14px;
         background: colors.$base;
         min-width: 40px;
-        margin-left: 7px;
+        margin: 7px;
+        margin-bottom: 14px;
         border-radius: 20px;
         padding: 10px;
 
