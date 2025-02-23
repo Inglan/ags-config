@@ -8,14 +8,12 @@ function OnScreenProgress({ visible }: { visible: Variable<boolean> }) {
   const brightness = Brightness.get_default();
   const speaker = Wp.get_default()!.get_default_speaker();
 
-  const iconName = Variable("");
   const value = Variable(0);
 
   let count = 0;
-  function show(v: number, icon: string) {
+  function show(v: number) {
     visible.set(true);
     value.set(v);
-    iconName.set(icon);
     count++;
     timeout(2000, () => {
       count--;
@@ -26,14 +24,10 @@ function OnScreenProgress({ visible }: { visible: Variable<boolean> }) {
   return (
     <revealer
       setup={(self) => {
-        self.hook(brightness, "notify::screen", () =>
-          show(brightness.screen, "display-brightness-symbolic"),
-        );
+        self.hook(brightness, "notify::screen", () => show(brightness.screen));
 
         if (speaker) {
-          self.hook(speaker, "notify::volume", () =>
-            show(speaker.volume, speaker.volumeIcon),
-          );
+          self.hook(speaker, "notify::volume", () => show(speaker.volume));
         }
       }}
       revealChild={visible()}
@@ -47,8 +41,6 @@ function OnScreenProgress({ visible }: { visible: Variable<boolean> }) {
           heightRequest={200}
           value={value()}
         />
-        <icon icon={iconName()} />
-
         <label label={value((v) => `${Math.floor(v * 100)}%`)} />
       </box>
     </revealer>
