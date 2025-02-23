@@ -1,15 +1,13 @@
-import { App, Astal, Gtk, Gdk } from "astal/gtk3";
-import { Variable, bind } from "astal";
+import { App } from "astal/gtk3";
+import { Variable, GLib, bind } from "astal";
+import { Astal, Gtk, Gdk } from "astal/gtk3";
 import Hyprland from "gi://AstalHyprland";
-import Tray from "gi://AstalTray";
+import Mpris from "gi://AstalMpris";
 import Battery from "gi://AstalBattery";
+import Wp from "gi://AstalWp";
+import Network from "gi://AstalNetwork";
+import Tray from "gi://AstalTray";
 import PowerProfiles from "gi://AstalPowerProfiles";
-
-const battery = Battery.get_default();
-const hypr = Hyprland.get_default();
-const powerprofiles = PowerProfiles.get_default();
-
-const time = Variable("").poll(1000, "date");
 
 function SysTray() {
   const tray = Tray.get_default();
@@ -18,16 +16,23 @@ function SysTray() {
     <box className="SysTray">
       {bind(tray, "items").as((items) =>
         items.map((item) => (
-          <button onClicked={(event) => item.activate(0, 0)}>
+          <menubutton
+            tooltipMarkup={bind(item, "tooltipMarkup")}
+            usePopover={false}
+            actionGroup={bind(item, "actionGroup").as((ag) => ["dbusmenu", ag])}
+            menuModel={bind(item, "menuModel")}
+          >
             <icon gicon={bind(item, "gicon")} />
-          </button>
+          </menubutton>
         ))
       )}
     </box>
   );
 }
-
 function BatteryWidget() {
+  const powerprofiles = PowerProfiles.get_default();
+  const battery = Battery.get_default();
+
   return (
     <button
       className="Battery"
@@ -59,6 +64,8 @@ function BatteryWidget() {
 }
 
 function Workspaces() {
+  const hypr = Hyprland.get_default();
+
   return (
     <box className="Workspaces" vertical={true}>
       {bind(hypr, "workspaces").as((wss) =>
