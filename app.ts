@@ -1,7 +1,7 @@
 import { App } from "astal/gtk3";
 import style from "./style.scss";
-import Bar from "./widget/Bar/Bar";
-import OSD from "./widget/osd/OSD";
+import Bar from "./bar/Bar";
+import OSD from "./osd/OSD";
 
 App.start({
   css: style,
