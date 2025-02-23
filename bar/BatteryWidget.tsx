@@ -1,0 +1,38 @@
+import { bind } from "astal";
+import Battery from "gi://AstalBattery?version=0.1";
+import PowerProfiles from "gi://AstalPowerProfiles?version=0.1";
+import Gtk from "gi://Gtk?version=3.0";
+
+export function BatteryWidget() {
+  const powerprofiles = PowerProfiles.get_default();
+  const battery = Battery.get_default();
+
+  return (
+    <button
+      className="Battery"
+      onClicked={() => {
+        if (powerprofiles.activeProfile === "balanced") {
+          powerprofiles.set_active_profile("performance");
+        } else if (powerprofiles.activeProfile === "performance") {
+          powerprofiles.set_active_profile("power-saver");
+        } else {
+          powerprofiles.set_active_profile("balanced");
+        }
+      }}
+    >
+      <box vertical={true}>
+        <box halign={Gtk.Align.CENTER} className="icon">
+          {bind(powerprofiles, "activeProfile").as((s) => {
+            if (s === "balanced") return "battery_full";
+            if (s === "performance") return "speed";
+            if (s === "power-saver") return "battery_plus";
+            return s;
+          })}
+        </box>
+        <box halign={Gtk.Align.CENTER}>
+          {bind(battery, "percentage").as((p) => Math.round(p * 100) + "%")}
+        </box>
+      </box>
+    </button>
+  );
+}
