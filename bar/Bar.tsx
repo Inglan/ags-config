@@ -57,7 +57,7 @@ function BatteryWidget() {
           })}
         </box>
         <box halign={Gtk.Align.CENTER}>
-          {bind(battery, "percentage").as((p) => p * 100 + "%")}
+          {bind(battery, "percentage").as((p) => Math.round(p * 100) + "%")}
         </box>
       </box>
     </button>
