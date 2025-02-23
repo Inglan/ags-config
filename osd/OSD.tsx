@@ -71,9 +71,7 @@ export default function OSD(monitor: Gdk.Monitor) {
       keymode={Astal.Keymode.ON_DEMAND}
       anchor={LEFT | BOTTOM}
     >
-      <eventbox onClick={() => visible.set(false)}>
-        <OnScreenProgress visible={visible} />
-      </eventbox>
+      <OnScreenProgress visible={visible} />
     </window>
   );
 }
