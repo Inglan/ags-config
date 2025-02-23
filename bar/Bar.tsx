@@ -29,6 +29,7 @@ function SysTray() {
     </box>
   );
 }
+
 function BatteryWidget() {
   const powerprofiles = PowerProfiles.get_default();
   const battery = Battery.get_default();
