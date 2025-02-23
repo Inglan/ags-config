@@ -1,2 +1,6 @@
 @use "./bar/bar.scss";
 @use "./osd/osd.scss";
+
+box.icon {
+  font-family: "Material Symbols Rounded";
+}
