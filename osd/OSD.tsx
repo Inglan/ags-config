@@ -27,25 +27,29 @@ function OnScreenProgress({ visible }: { visible: Variable<boolean> }) {
     <revealer
       setup={(self) => {
         self.hook(brightness, "notify::screen", () =>
-          show(brightness.screen, "display-brightness-symbolic")
+          show(brightness.screen, "display-brightness-symbolic"),
         );
 
         if (speaker) {
           self.hook(speaker, "notify::volume", () =>
-            show(speaker.volume, speaker.volumeIcon)
+            show(speaker.volume, speaker.volumeIcon),
           );
         }
       }}
       revealChild={visible()}
-      transitionType={Gtk.RevealerTransitionType.SLIDE_UP}
+      transitionType={Gtk.RevealerTransitionType.CROSSFADE}
     >
-      <box className="OSD">
-        <icon icon={iconName()} />
+      <box className="OSD" vertical={true}>
         <levelbar
+          orientation={Gtk.Orientation.VERTICAL}
+          inverted={true}
           valign={Gtk.Align.CENTER}
-          widthRequest={100}
+          widthRequest={10}
+          heightRequest={200}
           value={value()}
         />
+        <icon icon={iconName()} />
+
         <label label={value((v) => `${Math.floor(v * 100)}%`)} />
       </box>
     </revealer>
@@ -55,6 +59,8 @@ function OnScreenProgress({ visible }: { visible: Variable<boolean> }) {
 export default function OSD(monitor: Gdk.Monitor) {
   const visible = Variable(false);
 
+  const { LEFT, BOTTOM } = Astal.WindowAnchor;
+
   return (
     <window
       gdkmonitor={monitor}
@@ -63,7 +69,7 @@ export default function OSD(monitor: Gdk.Monitor) {
       application={App}
       layer={Astal.Layer.OVERLAY}
       keymode={Astal.Keymode.ON_DEMAND}
-      anchor={Astal.WindowAnchor.BOTTOM}
+      anchor={LEFT | BOTTOM}
     >
       <eventbox onClick={() => visible.set(false)}>
         <OnScreenProgress visible={visible} />
