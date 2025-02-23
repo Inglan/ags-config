@@ -44,7 +44,6 @@ function OnScreenProgress({ visible }: { visible: Variable<boolean> }) {
           orientation={Gtk.Orientation.VERTICAL}
           inverted={true}
           valign={Gtk.Align.CENTER}
-          widthRequest={10}
           heightRequest={200}
           value={value()}
         />
