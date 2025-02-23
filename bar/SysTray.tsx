@@ -5,7 +5,7 @@ export function SysTray() {
   const tray = Tray.get_default();
 
   return (
-    <box className="SysTray">
+    <box className="SysTray" vertical={true}>
       {bind(tray, "items").as((items) =>
         items.map((item) => (
           <menubutton
