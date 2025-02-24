@@ -2,33 +2,44 @@
 @use "../colors";
 
 window.Bar {
-  background: transparent;
-  > box {
-    min-width: 50px;
-    background: colors.$base;
-    margin: 14px;
-    margin-right: 0;
-    border-radius: 20px;
-    padding: 4px;
-  }
-
-  box.Workspaces {
-    button {
-      margin-bottom: 4px;
-      background: colors.$base;
-      color: colors.$text;
-      border-radius: 20px;
+    background: transparent;
+    > box {
+        min-width: 50px;
+        background: colors.$base;
+        margin: 14px;
+        margin-right: 0;
+        border-radius: 20px;
+        padding: 4px;
     }
-    button.focused {
-      background: colors.$surface1;
-      color: colors.$text;
-      padding: 10px;
-    }
-  }
 
-  box.Battery {
-    background: colors.$surface1;
-    padding: 5px;
-    border-radius: 20px;
-  }
+    box.Workspaces {
+        button {
+            margin-bottom: 4px;
+            background: colors.$base;
+            color: colors.$text;
+            border-radius: 20px;
+        }
+        button.focused {
+            background: colors.$surface1;
+            color: colors.$text;
+            padding: 10px;
+        }
+    }
+
+    box.Battery {
+        background: colors.$surface1;
+        padding: 5px;
+        border-radius: 20px;
+    }
+
+    box.Clock {
+        background: colors.$surface1;
+        padding: 5px;
+        border-radius: 20px;
+        color: colors.$text;
+
+        label {
+            font-size: 30px;
+        }
+    }
 }

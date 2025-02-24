@@ -3,6 +3,7 @@ import { Astal, Gdk } from "astal/gtk3";
 import { SysTray } from "./SysTray";
 import { BatteryWidget } from "./BatteryWidget";
 import { Workspaces } from "./Workspaces";
+import { Clock } from "./Clock";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor;
@@ -21,6 +22,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box vexpand={true} />
         <SysTray />
         <BatteryWidget />
+        <Clock />
       </box>
     </window>
   );
