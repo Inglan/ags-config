@@ -21,11 +21,18 @@ export function BatteryWidget() {
       }}
     >
       <box vertical={true}>
-        <box halign={Gtk.Align.CENTER} className="icon">
+        <box
+          halign={Gtk.Align.CENTER}
+          className={bind(battery, "percentage").as((percent) => {
+            if (percent < 0.15) return "icon red_text";
+            else return "icon";
+          })}
+        >
           {bind(battery, "charging").as((c) => {
             if (c) return "battery_charging";
             return "battery_full";
           })}
+
           {bind(powerprofiles, "activeProfile").as((s) => {
             if (s === "balanced") return "";
             if (s === "performance") return "speed";
