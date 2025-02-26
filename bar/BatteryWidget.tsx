@@ -22,10 +22,14 @@ export function BatteryWidget() {
     >
       <box vertical={true}>
         <box halign={Gtk.Align.CENTER} className="icon">
+          {bind(battery, "charging").as((c) => {
+            if (c) return "battery_charging";
+            return "battery_full";
+          })}
           {bind(powerprofiles, "activeProfile").as((s) => {
-            if (s === "balanced") return "battery_full";
+            if (s === "balanced") return "";
             if (s === "performance") return "speed";
-            if (s === "power-saver") return "battery_plus";
+            if (s === "power-saver") return "add";
             return s;
           })}
         </box>
