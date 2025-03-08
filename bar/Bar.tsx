@@ -57,6 +57,14 @@ function Player(player: Mpris.Player) {
             </box>
           </button>
         </box>
+        <slider
+          vertical={true}
+          max={bind(player, "length")}
+          value={bind(player, "position")}
+          onDragged={(slider) => {
+            player.position = slider.value;
+          }}
+        />
       </box>
     </box>
   );
