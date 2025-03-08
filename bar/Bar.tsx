@@ -22,10 +22,15 @@ let memUsage = Variable(0).poll(
 
 function SystemInfo() {
   return (
-    <box>
-      <label>System Info</label>
-      <label>CPU Usage: {bind(cpuUsage)}%</label>
-      <label>Memory Usage: {bind(memUsage)}%</label>
+    <box vertical={true} className="SystemInfo">
+      <box>
+        <box className="icon">memory</box>
+        {bind(cpuUsage)}%
+      </box>
+      <box>
+        <box className="icon">memory_alt</box>
+        {bind(memUsage)}%
+      </box>
     </box>
   );
 }
