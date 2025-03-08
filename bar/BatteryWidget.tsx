@@ -29,7 +29,7 @@ export function BatteryWidget() {
           })}
         >
           {bind(battery, "charging").as((c) => {
-            if (c) return "battery_charging";
+            if (c) return "battery_charging_full";
             return "battery_full";
           })}
 
