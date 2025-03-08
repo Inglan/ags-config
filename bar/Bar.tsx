@@ -9,7 +9,7 @@ import Mpris from "gi://AstalMpris";
 
 function Player(player: Mpris.Player) {
   return (
-    <box vertical={true}>
+    <box vertical={true} className="Player">
       <box
         className="Cover"
         css={bind(player, "coverArt").as(
@@ -17,7 +17,7 @@ function Player(player: Mpris.Player) {
             `background-image: url('${cover}');min-width: 100px;min-height: 100px; background-size: cover; background-position: center;`,
         )}
       />
-      <box>
+      <box className="Controls">
         <button
           onClickRelease={() => {
             player.previous();
