@@ -2,6 +2,8 @@
 @use "../colors";
 
 window.Bar {
+    font-family: "Product Sans", sans-serif;
+
     background: transparent;
     > box {
         min-width: 50px;
