@@ -31,14 +31,16 @@ function Player(player: Mpris.Player) {
             player.previous();
           }}
         >
-          <box className="icon">skip_previous</box>
+          <box halign={Gtk.Align.CENTER} className="icon">
+            skip_previous
+          </box>
         </button>
         <button
           onClickRelease={() => {
             player.play_pause();
           }}
         >
-          <box className="icon">
+          <box halign={Gtk.Align.CENTER} className="icon">
             {bind(player, "playback_status").as((status) =>
               status == 1 ? "play_arrow" : "pause",
             )}
@@ -49,7 +51,9 @@ function Player(player: Mpris.Player) {
             player.next();
           }}
         >
-          <box className="icon">skip_next</box>
+          <box halign={Gtk.Align.CENTER} className="icon">
+            skip_next
+          </box>
         </button>
       </box>
     </box>

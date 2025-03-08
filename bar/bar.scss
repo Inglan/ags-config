@@ -70,4 +70,15 @@ window.Bar {
             font-size: 18px;
         }
     }
+
+    .Player {
+        .Cover {
+            border-radius: 20px;
+        }
+        .Controls {
+            button {
+                background-color: transparent;
+            }
+        }
+    }
 }
