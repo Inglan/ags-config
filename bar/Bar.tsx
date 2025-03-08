@@ -9,7 +9,7 @@ import Mpris from "gi://AstalMpris";
 
 function Player(player: Mpris.Player) {
   return (
-    <box>
+    <box vertical={true}>
       <box
         className="Cover"
         css={bind(player, "coverArt").as(
@@ -17,17 +17,19 @@ function Player(player: Mpris.Player) {
             `background-image: url('${cover}');min-width: 100px;min-height: 100px; background-size: cover; background-position: center;`,
         )}
       />
-      <button
-        onClickRelease={() => {
-          player.play_pause();
-        }}
-      >
-        <box className="icon">
-          {bind(player, "playback_status").as((status) =>
-            status == 1 ? "play_arrow" : "pause",
-          )}
-        </box>
-      </button>
+      <box>
+        <button
+          onClickRelease={() => {
+            player.play_pause();
+          }}
+        >
+          <box className="icon">
+            {bind(player, "playback_status").as((status) =>
+              status == 1 ? "play_arrow" : "pause",
+            )}
+          </box>
+        </button>
+      </box>
     </box>
   );
 }
