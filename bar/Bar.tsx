@@ -25,36 +25,38 @@ function Player(player: Mpris.Player) {
           )}
         />
       </eventbox>
-      <box className="Controls" vertical={true}>
-        <button
-          onClickRelease={() => {
-            player.previous();
-          }}
-        >
-          <box halign={Gtk.Align.CENTER} className="icon">
-            skip_previous
-          </box>
-        </button>
-        <button
-          onClickRelease={() => {
-            player.play_pause();
-          }}
-        >
-          <box halign={Gtk.Align.CENTER} className="icon">
-            {bind(player, "playback_status").as((status) =>
-              status == 1 ? "play_arrow" : "pause",
-            )}
-          </box>
-        </button>
-        <button
-          onClickRelease={() => {
-            player.next();
-          }}
-        >
-          <box halign={Gtk.Align.CENTER} className="icon">
-            skip_next
-          </box>
-        </button>
+      <box>
+        <box className="Controls" vertical={true}>
+          <button
+            onClickRelease={() => {
+              player.previous();
+            }}
+          >
+            <box halign={Gtk.Align.CENTER} className="icon">
+              skip_previous
+            </box>
+          </button>
+          <button
+            onClickRelease={() => {
+              player.play_pause();
+            }}
+          >
+            <box halign={Gtk.Align.CENTER} className="icon">
+              {bind(player, "playback_status").as((status) =>
+                status == 1 ? "play_arrow" : "pause",
+              )}
+            </box>
+          </button>
+          <button
+            onClickRelease={() => {
+              player.next();
+            }}
+          >
+            <box halign={Gtk.Align.CENTER} className="icon">
+              skip_next
+            </box>
+          </button>
+        </box>
       </box>
     </box>
   );
