@@ -8,42 +8,44 @@ export function BatteryWidget() {
   const battery = Battery.get_default();
 
   return (
-    <button
-      className="Battery"
-      onClicked={() => {
-        if (powerprofiles.activeProfile === "balanced") {
-          powerprofiles.set_active_profile("performance");
-        } else if (powerprofiles.activeProfile === "performance") {
-          powerprofiles.set_active_profile("power-saver");
-        } else {
-          powerprofiles.set_active_profile("balanced");
-        }
-      }}
-    >
-      <box vertical={true}>
-        <box
-          halign={Gtk.Align.CENTER}
-          className={bind(battery, "percentage").as((percent) => {
-            if (percent < 0.15) return "icon red_text";
-            else return "icon";
-          })}
-        >
-          {bind(battery, "charging").as((c) => {
-            if (c) return "battery_charging_full";
-            return "battery_full";
-          })}
+    <box>
+      <button
+        className="Battery"
+        onClicked={() => {
+          if (powerprofiles.activeProfile === "balanced") {
+            powerprofiles.set_active_profile("performance");
+          } else if (powerprofiles.activeProfile === "performance") {
+            powerprofiles.set_active_profile("power-saver");
+          } else {
+            powerprofiles.set_active_profile("balanced");
+          }
+        }}
+      >
+        <box vertical={true}>
+          <box
+            halign={Gtk.Align.CENTER}
+            className={bind(battery, "percentage").as((percent) => {
+              if (percent < 0.15) return "icon red_text";
+              else return "icon";
+            })}
+          >
+            {bind(battery, "charging").as((c) => {
+              if (c) return "battery_charging_full";
+              return "battery_full";
+            })}
 
-          {bind(powerprofiles, "activeProfile").as((s) => {
-            if (s === "balanced") return "";
-            if (s === "performance") return "speed";
-            if (s === "power-saver") return "add";
-            return s;
-          })}
+            {bind(powerprofiles, "activeProfile").as((s) => {
+              if (s === "balanced") return "";
+              if (s === "performance") return "speed";
+              if (s === "power-saver") return "add";
+              return s;
+            })}
+          </box>
+          <box halign={Gtk.Align.CENTER}>
+            {bind(battery, "percentage").as((p) => Math.round(p * 100) + "%")}
+          </box>
         </box>
-        <box halign={Gtk.Align.CENTER}>
-          {bind(battery, "percentage").as((p) => Math.round(p * 100) + "%")}
-        </box>
-      </box>
-    </button>
+      </button>
+    </box>
   );
 }
