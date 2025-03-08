@@ -20,6 +20,13 @@ function Player(player: Mpris.Player) {
       <box>
         <button
           onClickRelease={() => {
+            player.previous();
+          }}
+        >
+          <box className="icon">skip_previous</box>
+        </button>
+        <button
+          onClickRelease={() => {
             player.play_pause();
           }}
         >
@@ -28,6 +35,13 @@ function Player(player: Mpris.Player) {
               status == 1 ? "play_arrow" : "pause",
             )}
           </box>
+        </button>
+        <button
+          onClickRelease={() => {
+            player.next();
+          }}
+        >
+          <box className="icon">skip_next</box>
         </button>
       </box>
     </box>
