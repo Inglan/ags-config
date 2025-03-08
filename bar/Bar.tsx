@@ -6,6 +6,22 @@ import { Workspaces } from "./Workspaces";
 import { Clock } from "./Clock";
 import { Media } from "./Media";
 import { SystemInfo } from "./SystemInfo";
+import { bind } from "astal";
+
+import Wp from "gi://AstalWp";
+
+function Audio() {
+  const speaker = Wp.get_default()?.audio.defaultSpeaker!;
+  return (
+    <box vertical={true} className="Audio">
+      <slider
+        vertical={true}
+        onDragged={({ value }) => (speaker.volume = value)}
+        value={bind(speaker, "volume")}
+      />
+    </box>
+  );
+}
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor;
@@ -22,6 +38,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       <box vertical={true}>
         <Workspaces />
         <box vexpand={true} />
+        <Audio />
         <Media />
         <SystemInfo />
         <SysTray />
