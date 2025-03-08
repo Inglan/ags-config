@@ -1,5 +1,5 @@
 import { App } from "astal/gtk3";
-import { Astal, Gdk } from "astal/gtk3";
+import { Astal, Gdk, Gtk } from "astal/gtk3";
 import { SysTray } from "./SysTray";
 import { BatteryWidget } from "./BatteryWidget";
 import { Workspaces } from "./Workspaces";
@@ -23,11 +23,11 @@ let memUsage = Variable(0).poll(
 function SystemInfo() {
   return (
     <box vertical={true} className="SystemInfo">
-      <box>
+      <box halign={Gtk.Align.CENTER}>
         <box className="icon">memory</box>
         {bind(cpuUsage)}%
       </box>
-      <box>
+      <box halign={Gtk.Align.CENTER}>
         <box className="icon">memory_alt</box>
         {bind(memUsage)}%
       </box>
