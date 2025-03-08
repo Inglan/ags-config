@@ -55,7 +55,7 @@ function Media() {
   const mpris = Mpris.get_default();
 
   return (
-    <box className="Media">
+    <box className="Media" vertical={true}>
       {bind(mpris, "players").as((ps) => ps.map((player) => Player(player)))}
     </box>
   );
