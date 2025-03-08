@@ -10,6 +10,7 @@ export function BatteryWidget() {
   return (
     <box>
       <button
+        hexpand={true}
         className="Battery"
         onClicked={() => {
           if (powerprofiles.activeProfile === "balanced") {
