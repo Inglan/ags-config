@@ -49,4 +49,12 @@ window.Bar {
     .red_text {
         color: red;
     }
+
+    .SysTray {
+        background-color: colors.$surface1;
+        border-radius: 20px;
+        .TrayButton {
+            background-color: transparent;
+        }
+    }
 }
