@@ -66,5 +66,8 @@ window.Bar {
         background-color: colors.$surface1;
         padding: 5px;
         border-radius: 20px;
+        .BatteryPercent {
+            font-size: 18px;
+        }
     }
 }

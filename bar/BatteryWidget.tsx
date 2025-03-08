@@ -42,7 +42,7 @@ export function BatteryWidget() {
               return s;
             })}
           </box>
-          <box halign={Gtk.Align.CENTER}>
+          <box className="BatteryPercent" halign={Gtk.Align.CENTER}>
             {bind(battery, "percentage").as((p) => Math.round(p * 100) + "%")}
           </box>
         </box>
