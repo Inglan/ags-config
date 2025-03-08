@@ -58,6 +58,7 @@ function Player(player: Mpris.Player) {
           </button>
         </box>
         <slider
+          className="SeekBar"
           vertical={true}
           max={bind(player, "length")}
           value={bind(player, "position")}
