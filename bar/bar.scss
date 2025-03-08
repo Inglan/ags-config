@@ -12,6 +12,9 @@ window.Bar {
         margin-right: 0;
         border-radius: 20px;
         padding: 4px;
+        > box {
+            margin-bottom: 5px;
+        }
     }
 
     box.Workspaces {
