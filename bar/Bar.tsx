@@ -31,7 +31,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <SysTray />
         <BatteryWidget />
         <Clock />
-        <drawingarea
+        {/* <drawingarea
           width_request={100}
           height_request={100}
           setup={(area) => {
@@ -41,7 +41,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
               cr.fill();
             });
           }}
-        />
+        /> */}
       </box>
     </window>
   );
