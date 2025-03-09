@@ -23,7 +23,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       application={App}
     >
       <box>
-        <box vertical={true}>
+        <box vertical={true} className="MainBar">
           <Workspaces />
           <box vexpand={true} />
           <Audio />
@@ -44,7 +44,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             }}
           /> */}
         </box>
-        a
+        <box vertical={true}></box>
       </box>
     </window>
   );
