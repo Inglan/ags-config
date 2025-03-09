@@ -8,10 +8,8 @@ window.Bar {
     > box {
         min-width: 70px;
         background: colors.$base;
-        margin: 14px;
         margin-right: 0;
-        border-radius: 20px;
-        padding: 4px;
+        padding: 8px;
         > box {
             margin-bottom: 5px;
         }
