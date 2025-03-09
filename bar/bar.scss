@@ -5,7 +5,7 @@ window.Bar {
     font-family: "Product Sans", sans-serif;
 
     background: transparent;
-    > box {
+    > box > box {
         min-width: 70px;
         background: colors.$base;
         margin-right: 0;

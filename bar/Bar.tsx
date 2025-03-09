@@ -22,26 +22,29 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       anchor={TOP | LEFT | BOTTOM}
       application={App}
     >
-      <box vertical={true}>
-        <Workspaces />
-        <box vexpand={true} />
-        <Audio />
-        <Media />
-        <SystemInfo />
-        <SysTray />
-        <BatteryWidget />
-        <Clock />
-        {/* <drawingarea
-          width_request={100}
-          height_request={100}
-          setup={(area) => {
-            area.connect("draw", (area, cr: giCairo.Context) => {
-              cr.arc(30, 30, 30, Math.PI, (3 * Math.PI) / 2);
-              cr.lineTo(0, 0);
-              cr.fill();
-            });
-          }}
-        /> */}
+      <box>
+        <box vertical={true}>
+          <Workspaces />
+          <box vexpand={true} />
+          <Audio />
+          <Media />
+          <SystemInfo />
+          <SysTray />
+          <BatteryWidget />
+          <Clock />
+          {/* <drawingarea
+            width_request={100}
+            height_request={100}
+            setup={(area) => {
+              area.connect("draw", (area, cr: giCairo.Context) => {
+                cr.arc(30, 30, 30, Math.PI, (3 * Math.PI) / 2);
+                cr.lineTo(0, 0);
+                cr.fill();
+              });
+            }}
+          /> */}
+        </box>
+        a
       </box>
     </window>
   );
