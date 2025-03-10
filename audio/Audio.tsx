@@ -12,7 +12,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
   return (
     <window
-      visible
+      visible={false}
       name="Audio"
       className="AudioWindow"
       gdkmonitor={gdkmonitor}
