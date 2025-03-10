@@ -13,13 +13,19 @@
     }
 
     .speakers {
-        button {
+        .speaker {
             background-color: transparent;
+            margin-bottom: 8px;
+            padding: 5px;
+            border-radius: 20px;
+            button {
+                background-color: transparent;
+            }
             > box > box.icon {
                 margin-right: 10px;
             }
         }
-        button.selected {
+        .speaker.selected {
             background-color: colors.$surface1;
         }
     }

@@ -28,17 +28,19 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box vertical={true} className="speakers">
           {bind(wp, "speakers").as((speakers) => {
             return speakers.map((speaker) => (
-              <box className="speaker" vertical={true}>
+              <box
+                vertical={true}
+                className={bind(speaker, "is_default").as(
+                  (isDefault: boolean) => {
+                    return isDefault ? "speaker selected" : "speaker";
+                  },
+                )}
+              >
                 <button
                   hexpand={true}
                   onClick={() => {
                     speaker.set_is_default(true);
                   }}
-                  className={bind(speaker, "is_default").as(
-                    (isDefault: boolean) => {
-                      return isDefault ? "selected" : "";
-                    },
-                  )}
                 >
                   <box>
                     <box className="icon">
