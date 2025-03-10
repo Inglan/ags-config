@@ -15,6 +15,10 @@
     .speakers {
         button {
             background-color: transparent;
+            > box > box.icon {
+                margin-right: 10px;
+            }
+            margin-bottom: 10px;
         }
         button.selected {
             background-color: colors.$surface1;

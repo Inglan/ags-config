@@ -38,7 +38,14 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                   },
                 )}
               >
-                {speaker.get_description()}
+                <box>
+                  <box className="icon">
+                    {speaker.get_icon().includes("bluetooth")
+                      ? "bluetooth"
+                      : "volume_up"}
+                  </box>
+                  {speaker.get_description()}
+                </box>
               </button>
             ));
           })}
