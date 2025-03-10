@@ -6,7 +6,6 @@ import { Workspaces } from "./Workspaces";
 import { Clock } from "./Clock";
 import { Media } from "./Media";
 import { SystemInfo } from "./SystemInfo";
-
 import { Audio } from "./Audio";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
