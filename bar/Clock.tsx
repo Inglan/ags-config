@@ -6,7 +6,7 @@ let minutes = new Variable("");
 let seconds = new Variable("");
 function UpdateTime() {
   const date = new Date();
-  hours.set(date.getHours().toString().padStart(2, "0"));
+  hours.set((date.getHours() % 12 || 12).toString().padStart(2, "0"));
   minutes.set(date.getMinutes().toString().padStart(2, "0"));
   seconds.set(date.getSeconds().toString().padStart(2, "0"));
 }
