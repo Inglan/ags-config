@@ -28,25 +28,35 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box vertical={true} className="speakers">
           {bind(wp, "speakers").as((speakers) => {
             return speakers.map((speaker) => (
-              <button
-                onClick={() => {
-                  speaker.set_is_default(true);
-                }}
-                className={bind(speaker, "is_default").as(
-                  (isDefault: boolean) => {
-                    return isDefault ? "selected" : "";
-                  },
-                )}
-              >
-                <box>
-                  <box className="icon">
-                    {speaker.get_icon().includes("bluetooth")
-                      ? "bluetooth"
-                      : "volume_up"}
+              <box className="speaker" vertical={true}>
+                <button
+                  hexpand={true}
+                  onClick={() => {
+                    speaker.set_is_default(true);
+                  }}
+                  className={bind(speaker, "is_default").as(
+                    (isDefault: boolean) => {
+                      return isDefault ? "selected" : "";
+                    },
+                  )}
+                >
+                  <box>
+                    <box className="icon">
+                      {speaker.get_icon().includes("bluetooth")
+                        ? "bluetooth"
+                        : "volume_up"}
+                    </box>
+                    {speaker.get_description()}
                   </box>
-                  {speaker.get_description()}
-                </box>
-              </button>
+                </button>
+                <slider
+                  hexpand={true}
+                  value={bind(speaker, "volume").as((volume) => volume)}
+                  onDragged={(slider) => {
+                    speaker.set_volume(slider.value);
+                  }}
+                />
+              </box>
             ));
           })}
         </box>
