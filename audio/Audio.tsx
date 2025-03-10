@@ -13,7 +13,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       anchor={BOTTOM | LEFT}
       application={App}
     >
-      <box>
+      <box vertical={true}>
         <label className="heading">Audio</label>
         <label className="subheading">Volume</label>
       </box>
