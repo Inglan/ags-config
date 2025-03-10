@@ -1,5 +1,5 @@
 import { App } from "astal/gtk3";
-import { Astal, Gdk } from "astal/gtk3";
+import { Astal, Gdk, Gtk } from "astal/gtk3";
 import { bind } from "astal";
 import Wp from "gi://AstalWp?version=0.1";
 
@@ -19,6 +19,12 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       application={App}
     >
       <box vertical={true}>
+        <label hexpand={false} halign={Gtk.Align.START} className="heading">
+          Audio
+        </label>
+        <label hexpand={false} halign={Gtk.Align.START} className="subheading">
+          Output
+        </label>
         <box vertical={true} className="speakers">
           {bind(wp, "speakers").as((speakers) => {
             return speakers.map((speaker) => (
@@ -37,8 +43,6 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             ));
           })}
         </box>
-        <label className="heading">Audio</label>
-        <label className="subheading">Volume</label>
       </box>
     </window>
   );
