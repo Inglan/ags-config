@@ -1,5 +1,5 @@
 import { bind } from "astal";
-import { Gtk } from "astal/gtk3";
+import { Gtk, App } from "astal/gtk3";
 import Wp from "gi://AstalWp?version=0.1";
 
 export function Audio() {
@@ -13,7 +13,11 @@ export function Audio() {
         onDragged={({ value }) => (speaker.volume = value)}
         value={bind(speaker, "volume")}
       />
-      <button>
+      <button
+        onClick={() => {
+          App.toggle_window("Audio");
+        }}
+      >
         <box className="icon" halign={Gtk.Align.CENTER}>
           {bind(speaker, "mute").as((mute) => {
             return mute ? "volume_off" : "volume_up";
