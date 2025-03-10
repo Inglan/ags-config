@@ -9,7 +9,7 @@ export function BrightnessSlider() {
     <box vertical={true} className="Brightness">
       <slider
         vertical={true}
-        heightRequest={200}
+        heightRequest={150}
         inverted={true}
         onDragged={({ value }) => (brightness.screen = value)}
         value={bind(brightness, "screen")}

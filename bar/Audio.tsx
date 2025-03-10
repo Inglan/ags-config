@@ -8,7 +8,7 @@ export function Audio() {
     <box vertical={true} className="Audio">
       <slider
         vertical={true}
-        heightRequest={200}
+        heightRequest={150}
         inverted={true}
         onDragged={({ value }) => (speaker.volume = value)}
         value={bind(speaker, "volume")}
