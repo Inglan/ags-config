@@ -10,4 +10,13 @@
         min-height: 700px;
         min-width: 400px;
     }
+
+    .speakers {
+        button {
+            background-color: transparent;
+        }
+        button.selected {
+            background-color: colors.$surface1;
+        }
+    }
 }
