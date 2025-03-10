@@ -51,6 +51,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           <Workspaces />
           <box vexpand={true} />
           <Actions />
+          <box vexpand={true} />
           <SystemInfo />
           <BrightnessSlider />
           <Audio />
