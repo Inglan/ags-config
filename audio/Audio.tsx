@@ -8,11 +8,15 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     <window
       visible
       name="Audio"
+      className="AudioWindow"
       gdkmonitor={gdkmonitor}
       anchor={LEFT}
       application={App}
     >
-      <box>a</box>
+      <box>
+        <label className="heading">Audio</label>
+        <label className="subheading">Volume</label>
+      </box>
     </window>
   );
 }

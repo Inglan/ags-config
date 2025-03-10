@@ -1,0 +1,11 @@
+@use "../colors";
+
+.AudioWindow {
+    background-color: transparent;
+    > box {
+        background-color: colors.$base;
+        color: colors.$text;
+        border-radius: 10px;
+        margin: 10px;
+    }
+}
