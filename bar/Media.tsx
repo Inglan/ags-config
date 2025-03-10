@@ -6,7 +6,7 @@ function Player(player: Mpris.Player) {
   return (
     <box vertical={true} className="Player">
       <eventbox
-        onClicked={() => {
+        onClickRelease={() => {
           player.raise();
         }}
       >
