@@ -43,7 +43,10 @@ window.Bar {
         color: colors.$text;
         margin-bottom: 0;
 
-        label {
+        label.ClockTop {
+            font-size: 30px;
+        }
+        label.ClockBottom {
             font-size: 30px;
         }
     }
