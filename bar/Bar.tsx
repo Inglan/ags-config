@@ -24,9 +24,9 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box vertical={true} className="MainBar">
           <Workspaces />
           <box vexpand={true} />
+          <SystemInfo />
           <Audio />
           <Media />
-          <SystemInfo />
           <SysTray />
           <BatteryWidget />
           <Clock />
