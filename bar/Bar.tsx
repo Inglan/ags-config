@@ -7,6 +7,7 @@ import { Clock } from "./Clock";
 import { Media } from "./Media";
 import { SystemInfo } from "./SystemInfo";
 import { Audio } from "./Audio";
+import { BrightnessSlider } from "./BrightnessSlider";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor;
@@ -25,6 +26,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           <Workspaces />
           <box vexpand={true} />
           <SystemInfo />
+          <BrightnessSlider />
           <Audio />
           <Media />
           <SysTray />
