@@ -39,7 +39,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
               >
                 <button
                   hexpand={true}
-                  onClick={() => {
+                  onClicked={() => {
                     speaker.set_is_default(true);
                   }}
                 >
@@ -64,7 +64,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           })}
         </box>
         <button
-          onClick={() => {
+          onClicked={() => {
             App.toggle_window("Audio");
             subprocess("qpwgraph");
           }}

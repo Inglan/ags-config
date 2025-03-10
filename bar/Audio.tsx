@@ -14,7 +14,7 @@ export function Audio() {
         value={bind(speaker, "volume")}
       />
       <button
-        onClick={() => {
+        onClicked={() => {
           App.toggle_window("Audio");
         }}
       >

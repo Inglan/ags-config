@@ -6,7 +6,7 @@ function Player(player: Mpris.Player) {
   return (
     <box vertical={true} className="Player">
       <eventbox
-        onClickRelease={() => {
+        onClicked={() => {
           player.raise();
         }}
       >
@@ -23,7 +23,7 @@ function Player(player: Mpris.Player) {
       <box>
         <box className="Controls" vertical={true}>
           <button
-            onClickRelease={() => {
+            onClicked={() => {
               player.previous();
             }}
           >
@@ -32,7 +32,7 @@ function Player(player: Mpris.Player) {
             </box>
           </button>
           <button
-            onClickRelease={() => {
+            onClicked={() => {
               player.play_pause();
             }}
           >
@@ -43,7 +43,7 @@ function Player(player: Mpris.Player) {
             </box>
           </button>
           <button
-            onClickRelease={() => {
+            onClicked={() => {
               player.next();
             }}
           >
