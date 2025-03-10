@@ -9,6 +9,7 @@ export default function RoundedCorners(gdkmonitor: Gdk.Monitor) {
       gdkmonitor={gdkmonitor}
       anchor={TOP | LEFT | BOTTOM}
       application={App}
+      className="CornersWindow"
     >
       <box vertical={true} className="Corners">
         <drawingarea
