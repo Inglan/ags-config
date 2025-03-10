@@ -6,7 +6,7 @@ export function BrightnessSlider() {
   const brightness = Brightness.get_default();
 
   return (
-    <box vertical={true} className="Audio">
+    <box vertical={true} className="Brightness">
       <slider
         vertical={true}
         heightRequest={200}
@@ -14,11 +14,7 @@ export function BrightnessSlider() {
         onDragged={({ value }) => (brightness.screen = value)}
         value={bind(brightness, "screen")}
       />
-      <button
-        onClicked={() => {
-          App.toggle_window("Audio");
-        }}
-      >
+      <button onClicked={() => {}}>
         <box className="icon" halign={Gtk.Align.CENTER}>
           brightness_7
         </box>
