@@ -8,27 +8,26 @@ import { Media } from "./Media";
 import { SystemInfo } from "./SystemInfo";
 import { Audio } from "./Audio";
 import { BrightnessSlider } from "./BrightnessSlider";
+import { subprocess } from "astal";
 
 function Actions() {
   return (
     <box vertical={true} className="Actions">
-      <button halign={Gtk.Align.CENTER}>
+      <button
+        halign={Gtk.Align.CENTER}
+        onClicked={() => {
+          subprocess("hyprpicker -a");
+        }}
+      >
         <box className="icon">colorize</box>
       </button>
-      <button halign={Gtk.Align.CENTER}>
-        <box className="icon">schedule</box>
-      </button>
-      <button halign={Gtk.Align.CENTER}>
-        <box className="icon">brightness_7</box>
-      </button>
-      <button halign={Gtk.Align.CENTER}>
-        <box className="icon">volume_up</box>
-      </button>
-      <button halign={Gtk.Align.CENTER}>
-        <box className="icon">wifi</box>
-      </button>
-      <button halign={Gtk.Align.CENTER}>
-        <box className="icon">bluetooth</box>
+      <button
+        halign={Gtk.Align.CENTER}
+        onClicked={() => {
+          subprocess("nwg-displays");
+        }}
+      >
+        <box className="icon">desktop_windows</box>
       </button>
     </box>
   );
