@@ -1,5 +1,5 @@
 import { App } from "astal/gtk3";
-import { Astal, Gdk, Gtk } from "astal/gtk3";
+import { Astal, Gdk } from "astal/gtk3";
 import { SysTray } from "./SysTray";
 import { BatteryWidget } from "./BatteryWidget";
 import { Workspaces } from "./Workspaces";
@@ -8,30 +8,7 @@ import { Media } from "./Media";
 import { SystemInfo } from "./SystemInfo";
 import { Audio } from "./Audio";
 import { BrightnessSlider } from "./BrightnessSlider";
-import { subprocess } from "astal";
-
-function Actions() {
-  return (
-    <box vertical={true} className="Actions">
-      <button
-        halign={Gtk.Align.CENTER}
-        onClicked={() => {
-          subprocess("hyprpicker -a");
-        }}
-      >
-        <box className="icon">colorize</box>
-      </button>
-      <button
-        halign={Gtk.Align.CENTER}
-        onClicked={() => {
-          subprocess("nwg-displays");
-        }}
-      >
-        <box className="icon">desktop_windows</box>
-      </button>
-    </box>
-  );
-}
+import { Actions } from "./Actions";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor;
