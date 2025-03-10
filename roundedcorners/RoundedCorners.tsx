@@ -1,4 +1,4 @@
-import giCairo from "../@girs/cairo";
+import giCairo from "cairo";
 
 function RoundedCorners() {
   return (
