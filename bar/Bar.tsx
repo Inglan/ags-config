@@ -1,5 +1,5 @@
 import { App } from "astal/gtk3";
-import { Astal, Gdk } from "astal/gtk3";
+import { Astal, Gdk, Gtk } from "astal/gtk3";
 import { SysTray } from "./SysTray";
 import { BatteryWidget } from "./BatteryWidget";
 import { Workspaces } from "./Workspaces";
@@ -12,22 +12,22 @@ import { BrightnessSlider } from "./BrightnessSlider";
 function Actions() {
   return (
     <box vertical={true} className="Actions">
-      <button>
+      <button halign={Gtk.Align.CENTER}>
         <box className="icon">colorize</box>
       </button>
-      <button>
+      <button halign={Gtk.Align.CENTER}>
         <box className="icon">schedule</box>
       </button>
-      <button>
+      <button halign={Gtk.Align.CENTER}>
         <box className="icon">brightness_7</box>
       </button>
-      <button>
+      <button halign={Gtk.Align.CENTER}>
         <box className="icon">volume_up</box>
       </button>
-      <button>
+      <button halign={Gtk.Align.CENTER}>
         <box className="icon">wifi</box>
       </button>
-      <button>
+      <button halign={Gtk.Align.CENTER}>
         <box className="icon">bluetooth</box>
       </button>
     </box>
