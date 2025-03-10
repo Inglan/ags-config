@@ -2,6 +2,7 @@ import { App } from "astal/gtk3";
 import { Astal, Gdk, Gtk } from "astal/gtk3";
 import { bind } from "astal";
 import Wp from "gi://AstalWp?version=0.1";
+import { subprocess } from "astal/process";
 
 const speaker = Wp.get_default()?.audio.defaultSpeaker!;
 const wp = Wp.get_default()?.audio!;
@@ -62,6 +63,14 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             ));
           })}
         </box>
+        <button
+          onClick={() => {
+            App.toggle_window("Audio");
+            subprocess("qpwgraph");
+          }}
+        >
+          Patchbay
+        </button>
       </box>
     </window>
   );
