@@ -1,5 +1,5 @@
 import { bind } from "astal";
-import { Gtk, App } from "astal/gtk3";
+import { App, Gtk } from "astal/gtk3";
 import Wp from "gi://AstalWp?version=0.1";
 
 export function Audio() {

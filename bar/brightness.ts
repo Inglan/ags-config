@@ -1,5 +1,5 @@
-import GObject, { register, property } from "astal/gobject";
 import { monitorFile, readFileAsync } from "astal/file";
+import GObject, { property, register } from "astal/gobject";
 import { exec, execAsync } from "astal/process";
 
 const get = (args: string) => Number(exec(`brightnessctl ${args}`));

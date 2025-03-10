@@ -1,5 +1,5 @@
 import { bind } from "astal";
-import { Gtk, App } from "astal/gtk3";
+import { Gtk } from "astal/gtk3";
 import Brightness from "./brightness";
 
 export function BrightnessSlider() {

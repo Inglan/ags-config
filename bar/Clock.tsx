@@ -1,4 +1,4 @@
-import { Variable, interval, bind } from "astal";
+import { Variable, bind, interval } from "astal";
 import Gtk from "gi://Gtk?version=3.0";
 
 let hours = new Variable("");

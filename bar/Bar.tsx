@@ -1,14 +1,13 @@
-import { App } from "astal/gtk3";
-import { Astal, Gdk } from "astal/gtk3";
-import { SysTray } from "./SysTray";
+import { App, Astal, Gdk } from "astal/gtk3";
+import { Actions } from "./Actions";
+import { Audio } from "./Audio";
 import { BatteryWidget } from "./BatteryWidget";
-import { Workspaces } from "./Workspaces";
+import { BrightnessSlider } from "./BrightnessSlider";
 import { Clock } from "./Clock";
 import { Media } from "./Media";
 import { SystemInfo } from "./SystemInfo";
-import { Audio } from "./Audio";
-import { BrightnessSlider } from "./BrightnessSlider";
-import { Actions } from "./Actions";
+import { SysTray } from "./SysTray";
+import { Workspaces } from "./Workspaces";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor;
