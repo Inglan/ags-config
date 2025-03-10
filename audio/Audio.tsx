@@ -2,7 +2,7 @@ import { App } from "astal/gtk3";
 import { Astal, Gdk } from "astal/gtk3";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
-  const { LEFT } = Astal.WindowAnchor;
+  const { LEFT, BOTTOM } = Astal.WindowAnchor;
 
   return (
     <window
@@ -10,7 +10,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       name="Audio"
       className="AudioWindow"
       gdkmonitor={gdkmonitor}
-      anchor={LEFT}
+      anchor={BOTTOM | LEFT}
       application={App}
     >
       <box>
