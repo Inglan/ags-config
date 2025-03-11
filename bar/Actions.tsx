@@ -20,6 +20,14 @@ export function Actions() {
       >
         <box className="icon">desktop_windows</box>
       </button>
+      <button
+        halign={Gtk.Align.CENTER}
+        onClicked={() => {
+          subprocess("swaync-client -t");
+        }}
+      >
+        <box className="icon">notifications</box>
+      </button>
     </box>
   );
 }
