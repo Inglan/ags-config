@@ -25,14 +25,13 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box vertical={true} className="MainBar">
           <Workspaces />
           <box vexpand={true} />
-          <Actions />
-          <box vexpand={true} />
           <SystemInfo />
           <BrightnessSlider />
           <Audio />
           <Media />
           <SysTray />
           <BatteryWidget />
+          <Actions />
           <Clock />
         </box>
       </box>
